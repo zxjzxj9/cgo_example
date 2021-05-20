@@ -24,7 +24,9 @@ void fillRandn(double* a, int sz) {
 
 // output bs x 64 x 64 x 3
 void genImage(unsigned char* output, int sz) {
-    auto a = torch::randn({16, 120});
+    auto a = torch::randn({1, 120});
     auto ret = m.forward({a});
-    auto b = (ret.toTensor() * 256).to(torch::kUInt8);
+    auto b = (ret.toTensor().clamp(0.0, 1.0) * 256).to(torch::kUInt8);
+    auto ptr = static_cast<unsigned char*>(b.data_ptr());
+    for(int i=0; i<sz; i++) output[i] = ptr[i];
 }
