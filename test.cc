@@ -30,3 +30,9 @@ void genImage(unsigned char* output, int sz) {
     auto ptr = static_cast<unsigned char*>(b.data_ptr());
     for(int i=0; i<sz; i++) output[i] = ptr[i];
 }
+
+double sumVec(double* vec, int sz) {
+    double ret = 0.0;
+    for(int i=0; i<sz; i++) ret += vec[i];
+    return ret;
+}

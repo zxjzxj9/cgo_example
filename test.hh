@@ -7,6 +7,7 @@ extern "C" {
     void addOne(double*, int);
     void fillRandn(double*, int);
     void genImage(unsigned char* output, int sz);
+    double sumVec(double*, int);
 #ifdef __cplusplus
 }
 #endif
