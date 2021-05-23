@@ -28,6 +28,8 @@ func main() {
 	fmt.Println(a)
 	sval, _ := C.sumVec((*C.double)(&a[0]), C.int(len(a)))
 	fmt.Println(sval)
+	val, _ := C.sqrt(2.0)
+	fmt.Println(val)
 
 	rawImage := make([]uint8, 1*84*64*3)
 	img := image.NewRGBA(image.Rect(0, 0, 64, 64))
